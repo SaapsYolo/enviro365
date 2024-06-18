@@ -3,7 +3,7 @@ package com.enviro.assessment.grad001.SiyabulelaBiyo.Model;
 import jakarta.persistence.*;
 
 @Entity
-//@Table(name="tblWaste")
+@Table
 public class WasteModel {
     @Id
     @GeneratedValue
@@ -56,5 +56,15 @@ public class WasteModel {
 
     public void setRecyclingTips(String recyclingTips) {
         this.recyclingTips = recyclingTips;
+    }
+
+    @Override
+    public String toString() {
+        return "WasteModel{" +
+                "id=" + id +
+                ", wasteCategory='" + wasteCategory + '\'' +
+                ", disposalGuideline='" + disposalGuideline + '\'' +
+                ", recyclingTips='" + recyclingTips + '\'' +
+                '}';
     }
 }

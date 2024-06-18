@@ -34,8 +34,8 @@ public class WasteController {
 //        }).orElse(ResponseEntity.notFound().build());
 //    }
 //
-    @DeleteMapping("/delete")
-    public void deleteWasteById(int id){
+    @DeleteMapping(path = "{id}")
+    public void deleteWasteById(@PathVariable("id") int id){
         Optional<WasteModel> wasteToDelete = wasteRepository.findById(id);
 
         if(wasteToDelete.isPresent()){
@@ -45,5 +45,13 @@ public class WasteController {
         }
     }
 
+    @PutMapping
+    public void updateWaste(
+            @PathVariable("id") int id,
+            @RequestParam(required = false) String wasteCategory,
+            @RequestParam(required = false) String disposalGuideline,
+            @RequestParam(required = false) String recyclingTips){
+        wasteServices.updateWaste(id, wasteCategory, disposalGuideline, recyclingTips);
+    }
 
 }

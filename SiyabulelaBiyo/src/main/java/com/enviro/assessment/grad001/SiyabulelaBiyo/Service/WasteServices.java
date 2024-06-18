@@ -8,5 +8,5 @@ public interface WasteServices {
     public WasteModel saveWaste(WasteModel waste);
     public List<WasteModel> getAllWaste();
     public void deleteWaste(int id);
-
+    public void updateWaste(int id, String wasteCategory, String disposalGuideline, String recyclingTips);
 }
